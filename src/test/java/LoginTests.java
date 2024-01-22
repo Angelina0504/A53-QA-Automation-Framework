@@ -1,3 +1,5 @@
+import Pages.HomePage;
+import Pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -62,8 +64,36 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 
+     /**
+     * Test Script using Page Object Model
+     * Locators used in these test, were located using By abstract class.
+     * @author: Nataliya
+     */
+    @Test
+    public void loginWithCorrectCredentials(){
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        //loginPage.login(); could do the same thing, as
+        //  loginPage.provideEmail("demo@class.com");
+        //        loginPage.providePassword("te$t$tudent");
+        //        loginPage.clickSubmit();
+        loginPage.provideEmail("demo@class.com");
+        loginPage.providePassword("te$t$tudent");
+        loginPage.clickSubmit();
 
+        Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
+     }
+    @Test
+    public void loginWithInCorrectCredentials(){
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
 
+        loginPage.provideEmail("demo3@class.com");
+        loginPage.providePassword("te$t3$tudent");
+        loginPage.clickSubmit();
+
+        Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
+    }
 }
 
 
