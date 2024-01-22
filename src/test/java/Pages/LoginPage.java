@@ -26,7 +26,7 @@ public class LoginPage extends BasePage{
         findElementUsingByLocator(submitBtn).click();
     }
     public void login(){
-        provideEmail("demo@class,com");
+        provideEmail("demo@class.com");
         providePassword("te$t$tudent");
         clickSubmit();
     }

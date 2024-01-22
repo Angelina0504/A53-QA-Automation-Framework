@@ -114,6 +114,7 @@ public class HomeTest extends BaseTest{
         playlistInputField.sendKeys(newPlaylistName);
         playlistInputField.sendKeys(Keys.ENTER);
     }
+
     public String getRenamePlaylistSuccessMsg(){
         WebElement notificationMsg =  wait.until(ExpectedConditions.visibilityOfElementLocated(By
                 .cssSelector("div.success.show")));
