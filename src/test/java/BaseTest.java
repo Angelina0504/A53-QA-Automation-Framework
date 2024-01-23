@@ -24,9 +24,9 @@ public class BaseTest {
         };
     }
     public WebDriver driver = null;
-    public WebDriverWait wait = null;
+    public WebDriverWait wait;
 
-    public Wait<WebDriver> fluentWait;
+    public Wait<WebDriver> fluentWait = null;
 
     public String url = "https://qa.koel.app/";
 

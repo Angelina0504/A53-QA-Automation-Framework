@@ -12,7 +12,7 @@ public class HomePage extends BasePage{
     }
 
     //Page Locators/Page Elements
-    private By userAvatarIcon = By.cssSelector("img.avatar");
+    By userAvatarIcon = By.cssSelector("img.avatar");
 
     //Page Methods
     public WebElement getUserAvatarIcon(){
@@ -20,7 +20,7 @@ public class HomePage extends BasePage{
     }
     public void doubleClickPlaylist() {
         WebElement playlistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By
-                .cssSelector(".playlist:nth-child(5)")));
+                .cssSelector(".playlist:nth-child(3)")));
         actions.doubleClick(playlistElement).perform();
 
     }

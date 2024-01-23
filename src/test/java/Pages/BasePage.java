@@ -13,9 +13,8 @@ public class BasePage {
 
     protected WebDriver driver;
 
-     protected WebDriverWait wait;
-
-     protected Actions actions;
+    protected WebDriverWait wait;
+    protected Actions actions;
 
     public BasePage(WebDriver givenDriver){
         driver = givenDriver;
