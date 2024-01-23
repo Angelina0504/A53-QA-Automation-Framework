@@ -11,15 +11,15 @@ import java.time.Duration;
 
 public class BasePage {
 
-    WebDriver driver;
+    protected WebDriver driver;
 
-    WebDriverWait wait;
+    protected WebDriverWait wait;
 
-    Actions actions;
+    protected Actions actions;
 
     public BasePage(WebDriver givenDriver){
         driver = givenDriver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         actions = new Actions(driver);
     }
     public WebElement findElementUsingByLocator(By locator){

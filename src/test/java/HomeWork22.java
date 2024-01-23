@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class HomeWork22 extends BaseTest{
     @Test
-    public void renamePlaylist() throws InterruptedException{
+    public void renamePlaylist() {
         String newPlaylistName = "Test Pro Edited Playlist";
         String updatedPlaylistMsg = "Updated playlist \"Test Pro Edited Playlist.\"";
 
@@ -14,9 +14,7 @@ public class HomeWork22 extends BaseTest{
 
 
         loginPage.login();
-        Thread.sleep(2000);
         homePage.doubleClickPlaylist();
-        Thread.sleep(2000);
         homePage.enterNewPlaylistName(newPlaylistName);
         //Assertions
         Assert.assertEquals(homePage.getRenamePlaylistSuccessMsg(), updatedPlaylistMsg);

@@ -12,7 +12,7 @@ public class HomePage extends BasePage{
     }
 
     //Page Locators/Page Elements
-    By userAvatarIcon = By.cssSelector("img.avatar");
+    private By userAvatarIcon = By.cssSelector("img.avatar");
 
     //Page Methods
     public WebElement getUserAvatarIcon(){
@@ -22,12 +22,12 @@ public class HomePage extends BasePage{
         WebElement playlistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By
                 .cssSelector(".playlist:nth-child(5)")));
         actions.doubleClick(playlistElement).perform();
-        System.out.println("double click on playlist.");
+
     }
     public void enterNewPlaylistName(String newPlaylistName){
         WebElement playlistInputField = wait.until(ExpectedConditions.visibilityOfElementLocated(By
                 .cssSelector("[name='name']")));
-        System.out.println("Playlist Located");
+
         playlistInputField.sendKeys(Keys.chord(Keys.CONTROL, "A", Keys.BACK_SPACE));
         playlistInputField.sendKeys(newPlaylistName);
         playlistInputField.sendKeys(Keys.ENTER);
