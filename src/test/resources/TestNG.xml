@@ -15,6 +15,11 @@
             <class name="ProfileTest"/>
             <class name="HomeWork17"/>
             <class name="HomeTest"/>
+            <class name="HomeWork21"/>
+            <class name="Pages.BasePage"/>
+            <class name="Pages.HomePage"/>
+            <class name="Pages.LoginPage"/>
+            <class name="HomeWork22"/>
         </classes>
     </test>
 </suite>

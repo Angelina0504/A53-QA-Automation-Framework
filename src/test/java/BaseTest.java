@@ -23,14 +23,14 @@ public class BaseTest {
                 {"",""}
         };
     }
-    public WebDriver driver;
+    public WebDriver driver = null;
     public WebDriverWait wait;
 
-    public Wait<WebDriver> fluentWait;
+    public Wait<WebDriver> fluentWait = null;
 
     public String url = "https://qa.koel.app/";
 
-    public Actions actions;
+    public Actions actions = null;
 
     @BeforeSuite
     static void setupClass() {WebDriverManager.chromedriver().setup();}

@@ -51,7 +51,7 @@ public class HomeTest extends BaseTest{
         doubleClickPlaylist();
         Thread.sleep(2000);
         enterNewPlaylistName();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         //Assertions
         Assert.assertEquals(getRenamePlaylistSuccessMsg(), updatePlaylistMsg);
     }
@@ -114,6 +114,7 @@ public class HomeTest extends BaseTest{
         playlistInputField.sendKeys(newPlaylistName);
         playlistInputField.sendKeys(Keys.ENTER);
     }
+
     public String getRenamePlaylistSuccessMsg(){
         WebElement notificationMsg =  wait.until(ExpectedConditions.visibilityOfElementLocated(By
                 .cssSelector("div.success.show")));
