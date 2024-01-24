@@ -12,12 +12,18 @@ public class HomePage extends BasePage{
     }
 
     //Page Locators/Page Elements
-    By userAvatarIcon = By.cssSelector("img.avatar");
+     By userAvatarIcon = By.cssSelector("img.avatar");
+
 
     //Page Methods
     public WebElement getUserAvatarIcon(){
         return findElementUsingByLocator(userAvatarIcon);
     }
+    public WebElement allSongsList(){
+        return findElementUsingByLocator(allSongsList);
+    }
+
+
     public void doubleClickPlaylist() {
         WebElement playlistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By
                 .cssSelector(".playlist:nth-child(3)")));
