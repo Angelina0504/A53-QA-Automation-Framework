@@ -21,14 +21,14 @@ public class AllSongsPage extends BasePage{
     public WebElement firstSongInAllSongs() {
         return findElementUsingByLocator(firstSongInAllSongs);
     }
-    public void contextClickFirstSong() throws InterruptedException {
+    public void contextClickFirstSong() {
             WebElement firstSongInTheList = wait.until(ExpectedConditions
                     .visibilityOfElementLocated(firstSongInAllSongs));
             actions.contextClick(firstSongInTheList).perform();
 
     }
 
-    public void choosePlayOption() throws InterruptedException{
+    public void choosePlayOption(){
         wait.until(ExpectedConditions
                         .visibilityOfElementLocated(playBtnInContextMeny))
                 .click();
