@@ -23,14 +23,23 @@ public class BaseTest {
                 {"",""}
         };
     }
+<<<<<<< Updated upstream
      WebDriver driver;
      WebDriverWait wait;
+=======
+    WebDriver driver;
+    WebDriverWait wait;
+>>>>>>> Stashed changes
 
     public Wait<WebDriver> fluentWait;
 
     public String url = "https://qa.koel.app/";
 
+<<<<<<< Updated upstream
      Actions actions;
+=======
+    Actions actions;
+>>>>>>> Stashed changes
 
     @BeforeSuite
     static void setupClass() {WebDriverManager.chromedriver().setup();}

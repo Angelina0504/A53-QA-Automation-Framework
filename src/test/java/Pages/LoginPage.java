@@ -20,6 +20,8 @@ public class LoginPage extends BasePage{
 
     @FindBy (css = "[type='submit']")
     WebElement loginButton;
+
+
     //Element Locators
     //Another way to use this strategy
     //String emailFieldCssSelector = "input[type='email'];
@@ -28,6 +30,9 @@ public class LoginPage extends BasePage{
     By submitBtn = By.cssSelector("button[type='submit']");
 
     //page methods using Selenium Page Factory
+
+
+
     public LoginPage provideEmailToLogin(String email){
         emailTextField.sendKeys(email);
         return this;
