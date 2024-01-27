@@ -1,3 +1,7 @@
+import Pages.AllSongsPage;
+import Pages.BasePage;
+import Pages.HomePage;
+import Pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -22,7 +26,24 @@ public class HomeTest extends BaseTest{
         //Assertions
         Assert.assertTrue(isSongPlaying());
     }
+      //the same test as playSongByContextClick
+    //this is the example as PageObjectModel Implementation
+    @Test
+    public void playSongByRightClick() throws InterruptedException{
 
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AllSongsPage allSongPage = new AllSongsPage(driver);
+        BasePage basePage =new BasePage(driver);
+        //login
+        loginPage.login();
+        homePage.goToAllSongsList();
+        //homePage.allSongsList();
+        allSongPage.contextClickFirstSong();
+        allSongPage.choosePlayOption();
+        //Assertions
+        Assert.assertTrue(basePage.isSongPlaying());
+    }
     @Test
     public void  hoverOverPlayBtn() throws InterruptedException{
         loginToKoelApp();
@@ -51,7 +72,7 @@ public class HomeTest extends BaseTest{
         doubleClickPlaylist();
         Thread.sleep(2000);
         enterNewPlaylistName();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         //Assertions
         Assert.assertEquals(getRenamePlaylistSuccessMsg(), updatePlaylistMsg);
     }
@@ -114,6 +135,7 @@ public class HomeTest extends BaseTest{
         playlistInputField.sendKeys(newPlaylistName);
         playlistInputField.sendKeys(Keys.ENTER);
     }
+
     public String getRenamePlaylistSuccessMsg(){
         WebElement notificationMsg =  wait.until(ExpectedConditions.visibilityOfElementLocated(By
                 .cssSelector("div.success.show")));
