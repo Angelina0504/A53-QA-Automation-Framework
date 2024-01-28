@@ -13,10 +13,21 @@ public class HomePage extends BasePage{
 
     //Page Locators/Page Elements
     By userAvatarIcon = By.cssSelector("img.avatar");
+    By allSongsList = By.cssSelector("li a.songs");
+    By hoverPlay = By.cssSelector("[data-testid='play-btn']");
 
     //Page Methods
     public WebElement getUserAvatarIcon(){
         return findElementUsingByLocator(userAvatarIcon);
+    }
+    public WebElement allSongsList(){
+        return findElementUsingByLocator(allSongsList);
+    }
+    public void goToAllSongsList(){
+        findElementUsingByLocator(allSongsList).click();
+    }
+    public void hoverPlayBtn(){
+        findElementUsingByLocator(hoverPlay).click();
     }
     public void doubleClickPlaylist() {
         WebElement playlistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By

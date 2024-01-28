@@ -16,6 +16,9 @@ public class BasePage {
     protected WebDriverWait wait;
     protected Actions actions;
 
+    By soundVisualiser = By.cssSelector("[data-testid='sound-bar-play']");
+    By allSongsList = By.cssSelector("li a.songs");
+   // By hoverPlay = By.cssSelector("[data-testid='play-btn']");
     public BasePage(WebDriver givenDriver){
         driver = givenDriver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -24,5 +27,22 @@ public class BasePage {
     public WebElement findElementUsingByLocator(By locator){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 
+    }
+    //public boolean isHoverPlayBtn(){
+        //WebElement playBtn = wait.until(ExpectedConditions
+              //  .visibilityOfElementLocated(hoverPlay));
+        //actions.moveToElement(playBtn).perform();
+       // return  hoverPlay.isDisplayed;
+
+
+   // }
+
+    public boolean isSongPlaying() {
+        WebElement soundBarVisualizer = wait.until(ExpectedConditions
+                .visibilityOfElementLocated(soundVisualiser));
+        return soundBarVisualizer.isDisplayed();
+    }
+    public void goToAllSongsList(){
+        findElementUsingByLocator(allSongsList).click();
     }
 }

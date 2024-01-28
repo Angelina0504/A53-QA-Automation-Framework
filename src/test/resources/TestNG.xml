@@ -20,6 +20,8 @@
             <class name="Pages.HomePage"/>
             <class name="Pages.LoginPage"/>
             <class name="HomeWork22"/>
+            <class name="HomeWork22A"/>
+            <class name="Pages.AllSongsPage"/>
         </classes>
     </test>
 </suite>
