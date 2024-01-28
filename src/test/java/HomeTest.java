@@ -29,7 +29,7 @@ public class HomeTest extends BaseTest{
       //the same test as playSongByContextClick
     //this is the example as PageObjectModel Implementation
     @Test
-    public void playSongByRightClick() throws InterruptedException{
+    public void playSongByRightClick() {
 
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);

@@ -12,10 +12,10 @@ import java.time.Duration;
 
 public class BasePage {
 
-     WebDriver driver = null;
+     WebDriver driver;
 
-     WebDriverWait wait = null;
-    Actions actions = null;
+     WebDriverWait wait;
+    Actions actions;
     //elements
     //By soundBarVisualizer = By.cssSelector("[data-testid='sound-bar-play']");
     By allSongsList = By.cssSelector("li a.songs");
@@ -28,7 +28,7 @@ public class BasePage {
     public WebElement findElementUsingByLocator(By locator){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-    public boolean isSongPlaying() throws InterruptedException{
+    public boolean isSongPlaying() {
         WebElement soundBarVisualizer = wait.until(ExpectedConditions
                 .visibilityOfElementLocated(By
                         .cssSelector("[data-testid='sound-bar-play']")));
@@ -37,4 +37,5 @@ public class BasePage {
     public void goToAllSongsList(){
         findElementUsingByLocator(allSongsList).click();
     }
+
 }
