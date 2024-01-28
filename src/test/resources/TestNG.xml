@@ -22,6 +22,7 @@
             <class name="Pages.LoginPage"/>
             <class name="HomeWork22"/>
             <class name="HomeWork16"/>
+            <class name="HomeWork23B"/>
 
         </classes>
     </test>

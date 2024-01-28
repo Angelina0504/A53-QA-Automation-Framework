@@ -12,10 +12,10 @@ import java.time.Duration;
 
 public class BasePage {
 
-     WebDriver driver;
+     public WebDriver driver;
 
-     WebDriverWait wait;
-    Actions actions;
+     public WebDriverWait wait;
+    public Actions actions;
     //elements
     //By soundBarVisualizer = By.cssSelector("[data-testid='sound-bar-play']");
     By allSongsList = By.cssSelector("li a.songs");
