@@ -13,14 +13,11 @@ public class HomePage extends BasePage{
     }
     //Element locators using Page Factory
     @FindBy(css = "li a.songs")
-    WebElement songsList;
-
-
-
+    private WebElement songsList;
 
     //Page Locators/Page Elements
-    By userAvatarIcon = By.cssSelector("img.avatar");
-    By allSongsList = By.cssSelector("li a.songs");
+    private By userAvatarIcon = By.cssSelector("img.avatar");
+    private By allSongsList = By.cssSelector("li a.songs");
     //Home Page methods using Selenium Page Factory
     public HomePage clickOnSongsList(){
         songsList.click();

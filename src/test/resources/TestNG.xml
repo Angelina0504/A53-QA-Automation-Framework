@@ -23,6 +23,7 @@
             <class name="HomeWork22A"/>
             <class name="Pages.AllSongsPage"/>
             <class name="HomeWork23C"/>
+            <class name="HomeWork23D"/>
         </classes>
     </test>
 </suite>

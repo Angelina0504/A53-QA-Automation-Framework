@@ -17,7 +17,7 @@ public class LoginPage extends BasePage{
     WebElement emailTextField;
 
     @FindBy(css = "[type='password']")
-    WebElement passwordTextField;
+     WebElement passwordTextField;
     @FindBy(css = "[type='submit']")
     WebElement loginButton;
     //Element Locators
@@ -26,17 +26,17 @@ public class LoginPage extends BasePage{
     By submitBtn = By.cssSelector("button[type='submit']");
 
     //methods using Selenium Page Factory
-    public LoginPage provideEmailToLogin(String email){
+    public void provideEmailToLogin(String email){
         emailTextField.sendKeys(email);
-        return this;
+        //return this;
     }
-    public LoginPage providePasswordToLogin(String password) {
+    public void providePasswordToLogin(String password) {
         passwordTextField.sendKeys(password);
-        return this;
+        //return this;
     }
-    public LoginPage clickSubmitBtnToLogin(){
+    public void clickSubmitBtnToLogin(){
         loginButton.click();
-        return this;
+       // return this;
     }
     //Page methods using POM
     public void provideEmail(String email){

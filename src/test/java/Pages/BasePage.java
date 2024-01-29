@@ -18,8 +18,8 @@ public class BasePage {
     protected WebDriverWait wait;
     protected Actions actions;
 
-    By soundVisualiser = By.cssSelector("[data-testid='sound-bar-play']");
-    By allSongsList = By.cssSelector("li a.songs");
+    private By soundVisualiser = By.cssSelector("[data-testid='sound-bar-play']");
+    private By allSongsList = By.cssSelector("li a.songs");
 
     public BasePage(WebDriver givenDriver){
         driver = givenDriver;
