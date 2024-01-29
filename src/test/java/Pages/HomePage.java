@@ -14,7 +14,7 @@ public class HomePage extends BasePage{
     //Page Locators/Page Elements
     By userAvatarIcon = By.cssSelector("img.avatar");
     By allSongsList = By.cssSelector("li a.songs");
-    By hoverPlay = By.cssSelector("[data-testid='play-btn']");
+    //By hoverPlay = By.cssSelector("[data-testid='sound-bar-play']");
 
     //Page Methods
     public WebElement getUserAvatarIcon(){
@@ -26,9 +26,14 @@ public class HomePage extends BasePage{
     public void goToAllSongsList(){
         findElementUsingByLocator(allSongsList).click();
     }
-    public void hoverPlayBtn(){
+   /* public void hoverPlayBtn(){
         findElementUsingByLocator(hoverPlay).click();
     }
+    public WebElement hoverPlay(){
+        WebElement playBtn = driver.findElement(hoverPlay);
+        actions.moveToElement(playBtn).perform();
+        return wait.until(ExpectedConditions.visibilityOf(playBtn));
+    }*/
     public void doubleClickPlaylist() {
         WebElement playlistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By
                 .cssSelector(".playlist:nth-child(3)")));

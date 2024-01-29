@@ -28,18 +28,20 @@ public class HomeWork22A extends BaseTest{
        // Assert.assertTrue(isSongPlaying());
         Assert.assertTrue(basePage.isSongPlaying());
     }
-   // @Test
-   // public void  hoverOverPlayBtn(){
-        //LoginPage loginPage = new LoginPage(driver);
-        //HomePage homePage = new HomePage(driver);
-       // AllSongsPage allSongsPage = new AllSongsPage(driver);
-       // loginPage.login();
-        //homePage.goToAllSongsList();
-       // homePage.hoverPlayBtn();
+    /*@Test
+    public void  hoverOverPlayBtn(){
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AllSongsPage allSongsPage = new AllSongsPage(driver);
+        loginPage.login();
+        homePage.goToAllSongsList();
+        homePage.hoverPlayBtn();*/
 
-        //Assert.assertTrue(hoverPlay().isDisplayed());
-       // Assert.assertTrue(homePage.isDisplayed());
-    //}
+
+       /* //Assert.assertTrue(hoverPlay().isDisplayed());
+        homePage.hoverPlay().click();
+        Assert.assertTrue(homePage.isSongPlaying());
+    }*/
     public void chooseAllSongsList() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li a.songs"))).click();
     }
@@ -60,5 +62,10 @@ public class HomeWork22A extends BaseTest{
                         .cssSelector("[data-testid='sound-bar-play']")));
         return soundBarVisualizer.isDisplayed();
     }
+   /* public WebElement hoverPlay(){
+        WebElement playBtn = driver.findElement(By.cssSelector("[data-testid='play-btn']"));
+        actions.moveToElement(playBtn).perform();
+        return wait.until(ExpectedConditions.visibilityOf(playBtn));
+    }*/
 
 }

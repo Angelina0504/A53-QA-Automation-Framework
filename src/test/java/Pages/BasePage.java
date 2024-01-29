@@ -26,16 +26,7 @@ public class BasePage {
     }
     public WebElement findElementUsingByLocator(By locator){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-
     }
-    //public boolean isHoverPlayBtn(){
-        //WebElement playBtn = wait.until(ExpectedConditions
-              //  .visibilityOfElementLocated(hoverPlay));
-        //actions.moveToElement(playBtn).perform();
-       // return  hoverPlay.isDisplayed;
-
-
-   // }
 
     public boolean isSongPlaying() {
         WebElement soundBarVisualizer = wait.until(ExpectedConditions
