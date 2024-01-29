@@ -18,7 +18,7 @@ public class BasePage {
 
     By soundVisualiser = By.cssSelector("[data-testid='sound-bar-play']");
     By allSongsList = By.cssSelector("li a.songs");
-   // By hoverPlay = By.cssSelector("[data-testid='play-btn']");
+
     public BasePage(WebDriver givenDriver){
         driver = givenDriver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));

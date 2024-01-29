@@ -23,11 +23,11 @@ public class HomePage extends BasePage{
     public WebElement allSongsList(){
         return findElementUsingByLocator(allSongsList);
     }
-    public void goToAllSongsList(){
-        findElementUsingByLocator(allSongsList).click();
-    }
-   /* public void hoverPlayBtn(){
-        findElementUsingByLocator(hoverPlay).click();
+    //public void goToAllSongsList(){
+        //findElementUsingByLocator(allSongsList).click();
+    //}
+    //public void hoverPlayBtn(){
+       /* findElementUsingByLocator(hoverPlay).click();
     }
     public WebElement hoverPlay(){
         WebElement playBtn = driver.findElement(hoverPlay);
