@@ -7,9 +7,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage{
 
-    public LoginPage(WebDriver givenDriver){
-        super (givenDriver);
-    }
+    public LoginPage(WebDriver givenDriver) {
+        super (givenDriver);}
 
 
     //Element locators using Page Factory
@@ -17,9 +16,9 @@ public class LoginPage extends BasePage{
     WebElement emailTextField;
 
     @FindBy(css = "[type='password']")
-     WebElement passwordTextField;
+    WebElement passwordTextField;
     @FindBy(css = "[type='submit']")
-    WebElement loginButton;
+     WebElement loginButton;
     //Element Locators
     By emailField = By.cssSelector("input[type='email']");
     By passwordField = By.cssSelector("input[type='password']");

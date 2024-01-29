@@ -19,13 +19,13 @@ public class AllSongsPage extends BasePage{
     By playBtnInContextMenu = By.cssSelector("li.playback");
 
     //AllSongs methods using Selenium Page Factory
-    public AllSongsPage clickOnFirstSong(){
+    public void clickOnFirstSong(){
         firstSong.click();
-        return this;
+        //return this;
     }
-    public AllSongsPage clickOnPlayOption(){
+    public void clickOnPlayOption(){
         firstPlayOption.click();
-        return this;
+        //return this;
     }
     //methods
     public WebElement firstSongInAllSongs() {
@@ -41,5 +41,9 @@ public class AllSongsPage extends BasePage{
                         .visibilityOfElementLocated(playBtnInContextMenu))
                 .click();
     }
+    public void chooseAllSongsList() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li a.songs"))).click();
+    }
+
 
 }

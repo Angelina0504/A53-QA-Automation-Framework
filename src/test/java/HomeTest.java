@@ -70,7 +70,7 @@ public class HomeTest extends BaseTest{
                         .xpath("//nav[@data-testid='song-context-menu']//ul//li[@class='playback']/span[1]")))
                 .click();
     }
-    public boolean isSongPlaying() throws InterruptedException{
+    public boolean isSongPlaying() {
         WebElement soundBarVisualizer = wait.until(ExpectedConditions
                 .visibilityOfElementLocated(By
                         .cssSelector("[data-testid='sound-bar-play']")));

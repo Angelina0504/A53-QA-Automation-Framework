@@ -18,8 +18,8 @@ public class BasePage {
     protected WebDriverWait wait;
     protected Actions actions;
 
-    private By soundVisualiser = By.cssSelector("[data-testid='sound-bar-play']");
-    private By allSongsList = By.cssSelector("li a.songs");
+    private final By soundVisualiser = By.cssSelector("[data-testid='sound-bar-play']");
+    private final By allSongsList = By.cssSelector("li a.songs");
 
     public BasePage(WebDriver givenDriver){
         driver = givenDriver;
@@ -59,4 +59,5 @@ public class BasePage {
                 .cssSelector("div.success.show")));
         return notificationMsg.getText();
     }
+
 }
