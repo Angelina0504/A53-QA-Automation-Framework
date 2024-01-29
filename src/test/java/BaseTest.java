@@ -25,12 +25,11 @@ public class BaseTest {
     }
     public WebDriver driver;
     public WebDriverWait wait;
-
+    public Actions actions;
     public Wait<WebDriver> fluentWait;
 
     public String url = "https://qa.koel.app/";
 
-    public Actions actions;
 
     @BeforeSuite
     static void setupClass() {WebDriverManager.chromedriver().setup();}
