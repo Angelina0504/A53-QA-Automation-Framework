@@ -22,65 +22,57 @@ public class LoginTests extends BaseTest {
         driver.quit();
     }
 
-
     @Test
-    public void loginWithValidEmailPassword() throws InterruptedException{
-       // try {
-            //navigateToUrl();
+    public void loginWithValidEmailPassword() {
+
             provideEmail("demo@class.com");
             providePassword("te$t$tudent");
             clickSubmit();
-            //Thread.sleep(2000);
 
             //Assertion
             WebElement avatarIcon = wait.until(ExpectedConditions
                     .visibilityOfElementLocated(By.cssSelector("img[class='avatar']")));
-        //WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
+
             Assert.assertTrue(avatarIcon.isDisplayed());
-        //} catch (Exception e) {
-           // System.out.println("Something went wrong." +e);
-         // }
     }
 
     @Test(dataProvider = "InvalidLoginData")
     //@Parameters({"BaseUrl"})
-    public void loginWithInvalidEmailValidPassword(String email, String password) throws InterruptedException {
+    public void loginWithInvalidEmailValidPassword(String email, String password)  {
         //navigateToUrl();
         provideEmail(email);
         providePassword(password);
         clickSubmit();
 
-        //Thread.sleep(2000);
+
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
     @Test
-    public void loginWithValidEmailInvalidPassword() throws InterruptedException {
+    public void loginWithValidEmailInvalidPassword()  {
         //navigateToUrl();
-        provideEmail("demo@class.com");
-        providePassword("wrongPassword");
-        clickSubmit();
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
 
-        //Thread.sleep(2000);
+        loginPage.provideEmail("demo3@class.com");
+        loginPage.providePassword("te$t3$tudent");
+        loginPage.clickSubmit();
+
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 
      /**
      * Test Script using Page Object Model
      * Locators used in these test, were located using By abstract class.
-     * @author: Nataliya
+     //* @author: Nataliya
      */
     @Test
     public void loginWithCorrectCredentials(){
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
-        //loginPage.login(); could do the same thing, as
-        //  loginPage.provideEmail("demo@class.com");
-        //        loginPage.providePassword("te$t$tudent");
-        //        loginPage.clickSubmit();
-        loginPage.provideEmail("demo@class.com");
-        loginPage.providePassword("te$t$tudent");
-        loginPage.clickSubmit();
 
+        loginPage.provideEmail("demo3@class.com");
+        loginPage.providePassword("te$t3$tudent");
+        loginPage.clickSubmit();
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
      }
     @Test
@@ -93,6 +85,19 @@ public class LoginTests extends BaseTest {
         loginPage.clickSubmit();
 
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
+    }
+    //login using Page Factory elements and Fluent Interface
+    @Test
+    public void loginWithCorrectCredentialsUsingPageFactory(){
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.provideEmailToLogin("demo@class.com");
+        loginPage.providePasswordToLogin("te$t$tudent");
+        loginPage.clickSubmitBtnToLogin();
+
+        Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
+
     }
 }
 
