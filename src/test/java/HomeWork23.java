@@ -12,7 +12,7 @@ public class HomeWork23 extends BaseTest{
 
     String newPlaylistName = "Sample Edited Playlist";
 
-    //Test starts here
+
     @Test
     public void playSong() {
         LoginPage loginPage = new LoginPage(driver);
@@ -29,7 +29,7 @@ public class HomeWork23 extends BaseTest{
         // Assert.assertTrue(isSongPlaying());
         Assert.assertTrue(basePage.isSongPlaying());
     }
-   /* public void chooseAllSongsList() {
+   public void chooseAllSongsList() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li a.songs"))).click();
     }
     public void contextClickFirstSong() {
@@ -48,5 +48,5 @@ public class HomeWork23 extends BaseTest{
                 .visibilityOfElementLocated(By
                         .cssSelector("[data-testid='sound-bar-play']")));
         return soundBarVisualizer.isDisplayed();
-    }*/
+    }
 }
