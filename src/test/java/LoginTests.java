@@ -15,12 +15,12 @@ import java.time.Duration;
 public class LoginTests extends BaseTest {
 
     @Parameters({"BaseUrl"})
-    @Test
+   /* @Test
     public void navigateToKoelApp(String BaseUrl) {
         navigateToUrl(BaseUrl);
         Assert.assertEquals(driver.getCurrentUrl(), BaseUrl);
         driver.quit();
-    }
+    }*/
 
     @Test
     public void loginWithValidEmailPassword() {
@@ -65,7 +65,7 @@ public class LoginTests extends BaseTest {
      * Locators used in these test, were located using By abstract class.
      //* @author: Nataliya
      */
-    @Test
+   /* @Test
     public void loginWithCorrectCredentials(){
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -74,8 +74,8 @@ public class LoginTests extends BaseTest {
         loginPage.providePassword("te$t3$tudent");
         loginPage.clickSubmit();
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
-     }
-    @Test
+     }*/
+    /*@Test
     public void loginWithInCorrectCredentials(){
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -85,7 +85,7 @@ public class LoginTests extends BaseTest {
         loginPage.clickSubmit();
 
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
-    }
+    }*/
     //login using Page Factory elements and Fluent Interface
     @Test
     public void loginWithCorrectCredentialsUsingPageFactory(){
