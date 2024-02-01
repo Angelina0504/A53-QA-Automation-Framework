@@ -12,7 +12,7 @@ public class HomeTest extends BaseTest{
 
     //Test starts here
     @Test
-    public void playSongByContextClick() throws InterruptedException{
+    public void playSongByContextClick() {
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
         clickSubmit();
@@ -24,9 +24,9 @@ public class HomeTest extends BaseTest{
     }
 
     @Test
-    public void  hoverOverPlayBtn() throws InterruptedException{
+    public void  hoverOverPlayBtn(){
         loginToKoelApp();
-        Thread.sleep(2000);
+        hoverPlay().click();
         Assert.assertTrue(hoverPlay().isDisplayed());
     }
     //Test End here
@@ -34,37 +34,37 @@ public class HomeTest extends BaseTest{
     //Create a test to hover over play button and click on play and verify that the song is being played.
 
     @Test
-    public void countSongsInPlayList() throws InterruptedException{
+    public void countSongsInPlayList() {
         loginToKoelApp();
         choosePlaylistByName("Playlist to count songs");
         displayAllSongs();
-        Thread.sleep(2000);
+
         //Assertions
         Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(countSongs())));
     }
     @Test
-    public void renamePlaylist() throws InterruptedException{
+    public void renamePlaylist() {
         String updatePlaylistMsg = "Updated playlist \"Sample Edited Playlist.\"";
 
         loginToKoelApp();
-        Thread.sleep(2000);
+
         doubleClickPlaylist();
-        Thread.sleep(2000);
+
         enterNewPlaylistName();
-        //Thread.sleep(2000);
+
         //Assertions
         Assert.assertEquals(getRenamePlaylistSuccessMsg(), updatePlaylistMsg);
     }
     //Helper methods start here
-    public void chooseAllSongsList() throws InterruptedException{
+    public void chooseAllSongsList(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li a.songs"))).click();
     }
-    public void contextClickFirstSong() throws InterruptedException{
+    public void contextClickFirstSong() {
         WebElement firstSongInTheList = wait.until(ExpectedConditions
                 .visibilityOfElementLocated(By.cssSelector(".all-songs tr.song-item:nth-child(1)")));
         actions.contextClick(firstSongInTheList).perform();
     }
-    public void choosePlayOption() throws InterruptedException{
+    public void choosePlayOption() {
         wait.until(ExpectedConditions
                 .visibilityOfElementLocated(By
                         .xpath("//nav[@data-testid='song-context-menu']//ul//li[@class='playback']/span[1]")))
@@ -93,8 +93,8 @@ public class HomeTest extends BaseTest{
     public String getPlaylistDetails(){
         return driver.findElement(By.cssSelector("span.meta.text-secondary span.meta")).getText();
     }
-    public void displayAllSongs() throws InterruptedException {
-        Thread.sleep(2000);
+    public void displayAllSongs()  {
+
         List<WebElement> songList = driver.findElements(By.cssSelector("section#playlistWrapper td.title"));
         System.out.println("Number of Songs found: " + countSongs());
         for (WebElement e : songList) {

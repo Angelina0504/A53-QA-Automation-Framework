@@ -6,10 +6,10 @@
     <parameter name="BaseUrl" value="https://qa.koel.app"/>
     <test name="Example Test" preserve-order="false">
         <classes>
-
-
             <class name="LoginTests"/>
+            <class name="HomeWork25"/>
             <!--class name="BaseTest"/>
+            <class name="LoginTests"/>
             <class name="HomeWork24A"/>
             <class name="HomeWork19"/>
             <class name="HomeWork20"/>
