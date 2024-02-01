@@ -20,7 +20,7 @@ public class LoginTests extends BaseTest {
         navigateToUrl(BaseUrl);
         Assert.assertEquals(driver.getCurrentUrl(), BaseUrl);
         driver.quit();
-    }*/
+    }*//*
 
     @Test
     public void loginWithValidEmailPassword() {
@@ -58,23 +58,34 @@ public class LoginTests extends BaseTest {
         loginPage.clickSubmit();
 
         Assert.assertEquals(driver.getCurrentUrl(), url);
-    }
+    }*/
 
      /**
      * Test Script using Page Object Model
      * Locators used in these test, were located using By abstract class.
      //* @author: Nataliya
      */
-   /* @Test
+    @Test
     public void loginWithCorrectCredentials(){
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
-        loginPage.provideEmail("demo3@class.com");
-        loginPage.providePassword("te$t3$tudent");
+        loginPage.provideEmail("demo@class.com");
+        loginPage.providePassword("te$t$tudent");
         loginPage.clickSubmit();
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
-     }*/
+     }
+    @Test
+    public void loginWithCorrectCredentials2(){
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+
+
+        loginPage.provideEmail("demo@class.com");
+        loginPage.providePassword("te$t$tudent");
+        loginPage.clickSubmit();
+        Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
+    }
     /*@Test
     public void loginWithInCorrectCredentials(){
         LoginPage loginPage = new LoginPage(driver);
@@ -87,7 +98,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
     }*/
     //login using Page Factory elements and Fluent Interface
-    @Test
+    /*@Test
     public void loginWithCorrectCredentialsUsingPageFactory(){
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -98,7 +109,7 @@ public class LoginTests extends BaseTest {
 
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
 
-    }
+    }*/
 }
 
 
