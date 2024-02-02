@@ -9,7 +9,7 @@ import java.util.UUID;
 public class ProfileTest extends BaseTest{
 
     @Test
-    public void changeProfileName() throws InterruptedException {
+    public void changeProfileName()  {
 
         //Login
         provideEmail("demo@class.com");
