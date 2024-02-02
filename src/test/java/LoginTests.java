@@ -87,6 +87,19 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
     }
     /*@Test
+    public void loginWithValidEmailPassword() {
+
+        provideEmail("demo@class.com");
+        providePassword("te$t$tudent");
+        clickSubmit();
+
+        //Assertion
+        WebElement avatarIcon = wait.until(ExpectedConditions
+                .visibilityOfElementLocated(By.cssSelector("img[class='avatar']")));
+
+        Assert.assertTrue(avatarIcon.isDisplayed());
+    }*/
+    /*@Test
     public void loginWithInCorrectCredentials(){
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
