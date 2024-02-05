@@ -1,6 +1,6 @@
-public class stepDefinitions {
-    public stepDefinitions() {
-        Given("^I open Login Page$", () -> {
-        });
-    }
-}
+//public class stepDefinitions {
+    //public stepDefinitions() {
+       // Given("^I open Login Page$", () -> {
+        //});
+   //// }
+//}

@@ -15,9 +15,9 @@ dependencies {
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.4.1'
 
 
-    implementation 'com.opencsv:opencsv:5.7.1'
+    //implementation 'com.opencsv:opencsv:5.7.1'
     //implementation 'io.cucumber:cucumber-testing:7.9.0'
-    implementation 'io.cucumber:cucumber-core:7.9.0'
+    implementation 'io.cucumber:cucumber-core:7.15.0'
     //implementation 'io.cucumber:cucumber-java:7.9.0'
     implementation 'io.cucumber:cucumber-gherkin:7.15.0'
     //implementation 'io.cucumber:gherkin:25.0.2'
@@ -28,7 +28,7 @@ dependencies {
     implementation 'io.cucumber:cucumber-testng:7.15.0'
 
     // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
-    testImplementation 'io.cucumber:cucumber-junit:7.15.0'
+    //testImplementation 'io.cucumber:cucumber-junit:7.15.0'
 
 
 

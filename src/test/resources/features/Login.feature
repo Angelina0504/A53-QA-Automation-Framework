@@ -1,7 +1,7 @@
 Feature: Login Feature
 
   Scenario: Login Success
-    Given I open Login Page
+    Given I open login Page
     When I enter email "demo@class.com"
     And I enter password "te$t$tudent"
     And I submit
