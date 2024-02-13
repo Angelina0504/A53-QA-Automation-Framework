@@ -15,12 +15,12 @@ import java.time.Duration;
 public class LoginTests extends BaseTest {
 
     @Parameters({"BaseUrl"})
-   /* @Test
-    public void navigateToKoelApp(String BaseUrl) {
-        navigateToUrl(BaseUrl);
-        Assert.assertEquals(driver.getCurrentUrl(), BaseUrl);
-        driver.quit();
-    }*//*
+//    @Test
+//    public void navigateToKoelApp(String BaseUrl) {
+//        navigateToUrl(BaseUrl);
+//        Assert.assertEquals(driver.getCurrentUrl(), BaseUrl);
+//        driver.quit();
+//    }
 
     @Test
     public void loginWithValidEmailPassword() {
@@ -58,7 +58,7 @@ public class LoginTests extends BaseTest {
         loginPage.clickSubmit();
 
         Assert.assertEquals(driver.getCurrentUrl(), url);
-    }*/
+    }
 
      /**
      * Test Script using Page Object Model
@@ -86,7 +86,7 @@ public class LoginTests extends BaseTest {
         loginPage.clickSubmit();
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
     }
-    /*@Test
+    /*Test
     public void loginWithValidEmailPassword() {
 
         provideEmail("demo@class.com");
@@ -99,7 +99,7 @@ public class LoginTests extends BaseTest {
 
         Assert.assertTrue(avatarIcon.isDisplayed());
     }*/
-    /*@Test
+    @Test
     public void loginWithInCorrectCredentials(){
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -109,9 +109,9 @@ public class LoginTests extends BaseTest {
         loginPage.clickSubmit();
 
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
-    }*/
+    }
     //login using Page Factory elements and Fluent Interface
-    /*@Test
+    @Test
     public void loginWithCorrectCredentialsUsingPageFactory(){
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -122,7 +122,7 @@ public class LoginTests extends BaseTest {
 
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
 
-    }*/
+    }
 }
 
 

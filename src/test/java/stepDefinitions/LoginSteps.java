@@ -58,4 +58,13 @@ public class LoginSteps {
        public void LoggedIn(){
            Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar"))).isDisplayed());
        }
+       @And("I enter wrong password {string}")
+       public void enterWrongPassword(String password) {
+           wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type = 'password']"))).sendKeys(password);
+       }
+       @Then("Login Fails")
+       public void loginFails(){
+          Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar"))).isDisplayed());
+    }
+
 }
