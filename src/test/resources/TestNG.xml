@@ -11,10 +11,19 @@
             <class name="HomeWork19"/>
             <class name="HomeWork20"/>
             <class name="HomeWork18"/>
-            <class name="HomeWork16"/>
+            <class name="Pages.HW23Practice"/>
             <class name="ProfileTest"/>
             <class name="HomeWork17"/>
             <class name="HomeTest"/>
+            <class name="HomeWork21"/>
+            <class name="Pages.AllSongsPage"/>
+            <class name="Pages.BasePage"/>
+            <class name="Pages.HomePage"/>
+            <class name="Pages.LoginPage"/>
+            <class name="HomeWork22"/>
+            <class name="HomeWork16"/>
+            <class name="HomeWork23B"/>
+
         </classes>
     </test>
 </suite>
