@@ -15,6 +15,11 @@
             <class name="ProfileTest"/>
             <class name="HomeWork17"/>
             <class name="HomeTest"/>
+            <class name="HW1221"/>
+            <class name="Practice.Practice11"/>
+            <class name="Practice.Practice1"/>
+            <class name="Practice.Practice2"/>
+            <class name="Practice.Practice8"/>
         </classes>
     </test>
 </suite>

@@ -16,8 +16,8 @@ public class LoginTests extends BaseTest {
     @Test
     public void navigateToKoelApp(String BaseUrl) {
         navigateToUrl(BaseUrl);
-        Assert.assertEquals(driver.getCurrentUrl(), BaseUrl);
-        driver.quit();
+       Assert.assertEquals(driver.getCurrentUrl(), BaseUrl);
+       driver.quit();
     }
 
 
@@ -28,14 +28,14 @@ public class LoginTests extends BaseTest {
             provideEmail("demo@class.com");
             providePassword("te$t$tudent");
             clickSubmit();
-            //Thread.sleep(2000);
+           //Thread.sleep(2000);
 
             //Assertion
             WebElement avatarIcon = wait.until(ExpectedConditions
                     .visibilityOfElementLocated(By.cssSelector("img[class='avatar']")));
-        //WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
+       //WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
             Assert.assertTrue(avatarIcon.isDisplayed());
-        //} catch (Exception e) {
+       //} catch (Exception e) {
            // System.out.println("Something went wrong." +e);
          // }
     }
@@ -50,10 +50,10 @@ public class LoginTests extends BaseTest {
 
         //Thread.sleep(2000);
         Assert.assertEquals(driver.getCurrentUrl(), url);
-    }
+   }
     @Test
     public void loginWithValidEmailInvalidPassword() throws InterruptedException {
-        //navigateToUrl();
+       //navigateToUrl();
         provideEmail("demo@class.com");
         providePassword("wrongPassword");
         clickSubmit();
