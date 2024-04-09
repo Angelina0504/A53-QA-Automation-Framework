@@ -11,12 +11,15 @@ public class Practice15 {
     }
     public static int task5_1(){
         int i = 0;
+        int n = 20;
         while (i < 10){
+            //return 20;
+            System.out.print(n + " ");
             i++;
-            System.out.print("20  " );
         }
-        return 20;
+        return i;
     }
+   // for ( i = 20; i++)
     public static void main (String [] args){
 
         int NewNumbers = task5_0();

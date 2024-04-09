@@ -28,6 +28,7 @@ public class HomeWork17 extends BaseTest{
         Assert.assertEquals(getAddToPlaylistSuccessMsg(), expectedSongAddedMessage);
 
     }
+
     public String getAddToPlaylistSuccessMsg() {
         WebElement notification = wait.until(ExpectedConditions
                 .visibilityOfElementLocated(By.cssSelector("div.success.show")));

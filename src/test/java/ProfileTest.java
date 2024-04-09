@@ -15,31 +15,23 @@ public class ProfileTest extends BaseTest{
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
         clickSubmit();
-        //Thread.sleep(2000);
-
         //NavigateToProfilePage
         clickOnAvatar();
-        //Thread.sleep(2000);
-
         //Random new name
         String randomNewName = generateRandomName();
-        //Thread.sleep(2000);
-
         //Provide current password
         provideCurrentPassword("te$t$tudent");
-        //Thread.sleep(2000);
-
         //Provide new Random name
         provideNewName(randomNewName);
-
         //Click on the save button
         clickSave();
-        //Thread.sleep(4000);
 
         //Assertion
         WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
         Assert.assertEquals(actualProfileName.getText(), randomNewName);
     }
+
+
     //Helper Method
     //NavigateToProfilePage
     public void clickOnAvatar(){
