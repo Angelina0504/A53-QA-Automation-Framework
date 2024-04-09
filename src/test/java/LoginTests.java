@@ -14,14 +14,19 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), url); //https://qa.koel.app/
     }
 
-    @Test (enabled = true, priority = 1, description = "Login with valid email and valid password")
-    public void loginValidEmailPassword(){
+    @Test //(enabled = true, priority = 1, description = "Login with valid email and valid password")
+    public void loginValidEmailPassword()throws InterruptedException{
 
         navigateToPage();
-        provideEmail("demo@class.com");
-        providePassword("te$t$tudent");
+
+        provideEmail("nataliya.yusupov@testpro.io");
+
+        providePassword("Ashatan5934$");
+
         clickSubmit();
+
         isAvatarDisplayed();
+
     }
 
     @Test (enabled = true, priority = 3, description = "Login with valid email and empty password")

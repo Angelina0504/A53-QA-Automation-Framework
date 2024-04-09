@@ -24,6 +24,7 @@ public class ProfileTests extends BaseTest {
         Thread.sleep(2000);
         WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
         Assert.assertEquals(actualProfileName.getText(), randomName);
+        //Assert.asserEquals(actualProfileName.isDisplayed());
     }
 }
 
