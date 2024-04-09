@@ -39,27 +39,22 @@ public class BaseTest {
         driver.quit();
     }
 
-
     void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("input[type = 'email']"));
         emailField.clear();
         emailField.sendKeys(email);
     }
-
     void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector ("input[type = 'password']"));
         passwordField.clear();
         passwordField.sendKeys(password);
     }
-
     void clickSubmit() {
         WebElement submitButton = driver.findElement(By.cssSelector("button[type = 'submit']"));
         submitButton.click();
     }
-
     //Helper Method
     public void navigateToUrl(){
         driver.get(url);
-
     }
 }
