@@ -7,24 +7,20 @@ public class ProfileTests extends BaseTest {
     public void changeProfileName() throws InterruptedException {
 
         navigateToPage();
-
-        provideEmail("demo@class.com");
-        providePassword("te$t$tudent");
+        provideEmail("nataliya.yusupov@testpro.io");
+        providePassword("Ashatan5934$");
         clickSubmit();
-
-        Thread.sleep(2000);
-        clickAvatarIcon();
-
+        clickOnAvatar();
         String randomName = generateRandomName();
-
-        provideCurrentPassword("te$t$tudent");
+        provideCurrentPassword("nataliya.yusupov@testpro.io");
         provideProfileName(randomName);
         clickSaveButton();
 
         Thread.sleep(2000);
         WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
         Assert.assertEquals(actualProfileName.getText(), randomName);
-        //Assert.asserEquals(actualProfileName.isDisplayed());
+
     }
+
 }
 

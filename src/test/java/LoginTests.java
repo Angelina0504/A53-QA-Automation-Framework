@@ -40,4 +40,5 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), url); //https://qa.koel.app/
     }
 
+
 }

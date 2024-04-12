@@ -50,7 +50,7 @@ public class BaseTest {
         WebElement submit = driver.findElement(By.cssSelector("button[type='submit']"));
         submit.click();
     }
-    public void clickAvatarIcon() {
+    public void clickOnAvatar() {
         WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
         avatarIcon.click();
     }
