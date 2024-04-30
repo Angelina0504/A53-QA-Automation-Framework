@@ -1,3 +1,5 @@
+import Pages.HomePage;
+import Pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -18,15 +20,10 @@ public class LoginTests extends BaseTest {
     public void loginValidEmailPassword()throws InterruptedException{
 
         navigateToPage();
-
         provideEmail("nataliya.yusupov@testpro.io");
-
         providePassword("Ashatan5934$");
-
         clickSubmit();
-
         isAvatarDisplayed();
-
     }
 
     @Test (enabled = true, priority = 3, description = "Login with valid email and empty password")
@@ -38,6 +35,15 @@ public class LoginTests extends BaseTest {
         clickSubmit();
 
         Assert.assertEquals(driver.getCurrentUrl(), url); //https://qa.koel.app/
+    }
+    @Test
+    public void loginWithCorrectEmailAndPassword(){
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        loginPage.provideEmail("nataliya.yusupov@testpro.io");
+        loginPage.providePassword("Ashatan5934$");
+        loginPage.clickSubmit();
+        Assert.assertTrue(homePage.clickOnAvatar().isDisplayed());
     }
 
 

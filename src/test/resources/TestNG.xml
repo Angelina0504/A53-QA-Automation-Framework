@@ -8,6 +8,10 @@
             <class name="LoginTests"/>
             <class name="BaseTest"/>
             <class name="ProfileTests"/>
+            <!--class name="Pages.ProfilePage"/-->
+            <class name="Pages.BasePage"/>
+            <class name="Pages.LoginPage"/>
+            <class name="Pages.HomePage"/>
         </classes>
     </test>
 </suite>

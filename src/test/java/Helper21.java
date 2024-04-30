@@ -15,7 +15,7 @@ import org.testng.annotations.BeforeSuite;
 import java.time.Duration;
 import java.util.UUID;
 
-public class BaseTest {
+public class Helper21 {
     public WebDriver driver = null;
     public WebDriverWait wait = null;
 
@@ -105,7 +105,7 @@ public class BaseTest {
     public void isNewNameDisplayedCorrectly() {
         WebElement newName =
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span[class='name']")));
-}
+    }
 
     public String generateRandomEmail() {
         return UUID.randomUUID().toString().replace("-", "");
@@ -137,7 +137,7 @@ public class BaseTest {
     }
 
     public void clickOnAllSongs(){
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='songs']"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='songs']"))).click();
     }
     public void provideProfileNewPassword(String newPassword){
         WebElement provideNewPassword =
@@ -152,7 +152,7 @@ public class BaseTest {
                         (By.xpath("//i[@data-testid='play-next-btn']")));
         WebElement playBtn =
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='play-btn']")));
-                        //By.cssSelector("span[class='play']")));
+        //By.cssSelector("span[class='play']")));
         //xpath("//span[@data-testid='play-btn']"));   both works
         playNextBtn.click();
         playBtn.click();
@@ -197,9 +197,9 @@ public class BaseTest {
         actions.contextClick(firstSongInTheList).perform();
     }
     public void choosePlayOption()throws InterruptedException {
-                wait.until(ExpectedConditions.visibilityOfElementLocated
+        wait.until(ExpectedConditions.visibilityOfElementLocated
                         (By.xpath("//nav[@data-testid='song-context-menu']//ul//li[@class='playback']/span[1]")))
-                        .click();
+                .click();
     }
     public boolean isSongPlayingWithNotification(){
         WebElement soundBar = wait.until(ExpectedConditions.visibilityOfElementLocated
