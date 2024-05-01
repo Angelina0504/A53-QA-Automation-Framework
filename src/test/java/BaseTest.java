@@ -1,53 +1,76 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 public class BaseTest {
-    public WebDriver driver = null;
-    public WebDriverWait wait = null;
+    @DataProvider(name="InvalidLoginData")
+    public Object[][] getDataFomDataProvider(){
+        return new Object[][]{
+                {"invalid@mail.com", "invalidPassword"},
+                {"nataliya.yusupov@testpro.io", ""},
+                {"", "Ashatan5934$"},
+                {"", ""},
+        };
+    }
+    public WebDriver driver;
+    public WebDriverWait wait;
+    public Wait<WebDriver>fluentWait;
 
     public String url = "https://qa.koel.app/";
-    public Actions actions = null;
+    public Actions actions;
     public String urlProfile = "https://qa.koel.app/#!/profile";
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
+    @Parameters({"BaseUrl"})
     @BeforeMethod
-    public void launchBrowser() {
+    public void launchBrowser(String BaseUrl) {
         //Added ChromeOptions argument below to fix websocket error
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
+        //Implicit wait
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //Explicit wait
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //Fluent Wait
+        fluentWait = new FluentWait<WebDriver>(driver)
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(5))
+                .ignoring(NoSuchElementException.class);
+                //.ignoring(NoAlertPresentException.class);
         actions = new Actions(driver);
         driver.manage().window().maximize();
+        //String url = BaseUrl;
+        navigateToPage(BaseUrl);
     }
     @AfterMethod
     public void closeBrowser() {
         driver.quit();
     }
-    public void navigateToPage() {
-        driver.get(url);
+    public void navigateToPage(String givenUrl) {
+        driver.get(givenUrl);
     }
-    public void navigateToProfilePage(){
-        driver.get(urlProfile);
-    }
+    //public void navigateToProfilePage(){
+        //driver.get(urlProfile);
+    //}
     public void provideEmail(String email) {
         WebElement emailField =
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='email']")));

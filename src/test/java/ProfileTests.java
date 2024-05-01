@@ -3,25 +3,32 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class ProfileTests extends BaseTest {
+    @Parameters({"BaseUrl"})
     @Test
-    public void changeProfileName() throws InterruptedException {
-        navigateToPage();
+    public void changeProfileName(String BaseUrl) throws InterruptedException {
+        navigateToPage(BaseUrl);
         loginToKoelApp();
         clickOnAvatar();
+        Thread.sleep(4000);
         String randomName = generateRandomName();
+        Thread.sleep(4000);
         provideCurrentPassword("Ashatan5934$");
+        Thread.sleep(4000);
         provideProfileName(randomName);
+        Thread.sleep(4000);
         clickSaveButton();
 
         WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
         Assert.assertEquals(actualProfileName.getText(), randomName);
     }
+    @Parameters({"BaseUrl"})
     @Test
-    public void updatedUserNameOnHomePage() throws InterruptedException {
-        navigateToPage();
+    public void updatedUserNameOnHomePage(String BaseUrl) throws InterruptedException {
+        navigateToPage(BaseUrl);
         loginToKoelApp();
         clickOnAvatar();
         String randomName = generateRandomName();
@@ -34,10 +41,10 @@ public class ProfileTests extends BaseTest {
         WebElement newName = driver.findElement(By.cssSelector("span[class='name']"));
         Assert.assertTrue(newName.isDisplayed());
     }
-
+    @Parameters({"BaseUrl"})
     @Test
-    public void updatedEmail() throws InterruptedException {
-        navigateToPage();
+    public void updatedEmail(String BaseUrl) throws InterruptedException {
+        navigateToPage(BaseUrl);
         provideEmail("nataliya.yusupov@testpro.io");
         providePassword("Ashatan5934$");
         clickSubmit();
@@ -49,10 +56,11 @@ public class ProfileTests extends BaseTest {
         WebElement profileNewEmail = driver.findElement(By.cssSelector("input[id='inputProfileEmail']"));
         Assert.assertTrue(profileNewEmail.isDisplayed());
     }
+    @Parameters({"BaseUrl"})
     @Test
-    public void updatedEmailField() throws InterruptedException {
+    public void updatedEmailField(String BaseUrl) throws InterruptedException {
         String message = "Profile updated.";
-        navigateToPage();
+        navigateToPage(BaseUrl);
         provideEmail("nataliya.yusupov@testpro.io");
         providePassword("Ashatan5934$");
         clickSubmit();
@@ -66,10 +74,11 @@ public class ProfileTests extends BaseTest {
 
     //To run we have to change the email add.to nataliya.yusupov@testpro.io, and update the email
     //The updatedEmailField is correct test case for update an email for the Profile Page
+    @Parameters({"BaseUrl"})
     @Test
-    public void updatedPasswordField() throws InterruptedException {
+    public void updatedPasswordField(String BaseUrl) throws InterruptedException {
         String expectedUpdatedPasswordMessage = "Profile updated.";
-        navigateToPage();
+        navigateToPage(BaseUrl);
         provideEmail("nataliya.yusupov@testpro.io");
         providePassword("Ashatan5934$");
         clickSubmit();
@@ -80,12 +89,12 @@ public class ProfileTests extends BaseTest {
 
         Assert.assertEquals(getProfileUpdatedSuccessMsg(), expectedUpdatedPasswordMessage);
     }
-
+    @Parameters({"BaseUrl"})
     @Test
-    public void themeIsChangedOnAllSongsPage() throws InterruptedException {
+    public void themeIsChangedOnAllSongsPage(String BaseUrl) throws InterruptedException {
         //boolean expectedThemeColorOak= true;
         //String expectedThemeColorOak = "Oak";
-        navigateToPage();
+        navigateToPage(BaseUrl);
         provideEmail("nataliya.yusupov@testpro.io");
         providePassword("Ashatan5934$");
         clickSubmit();
@@ -95,11 +104,12 @@ public class ProfileTests extends BaseTest {
        WebElement backGround = driver.findElement(By.cssSelector("div[data-testid='album-art-overlay']"));
        Assert.assertTrue(backGround.isDisplayed());
     }
+    @Parameters({"BaseUrl"})
     @Test
-    public void themeIsNotChangedOnProfilePage() throws InterruptedException {
+    public void themeIsNotChangedOnProfilePage(String BaseUrl) throws InterruptedException {
         String unexpectedThemeColor = "Classic";
         String actualThemeColor = "Oak";
-        navigateToPage();
+        navigateToPage(BaseUrl);
         provideEmail("nataliya.yusupov@testpro.io");
         providePassword("Ashatan5934$");
         clickSubmit();
@@ -109,9 +119,10 @@ public class ProfileTests extends BaseTest {
     }
 
     @Test
-    public void songPlayWithNotification()throws InterruptedException{
+    @Parameters({"BaseUrl"})
+    public void songPlayWithNotification(String BaseUrl)throws InterruptedException{
         //String songIsPlayingWithNotification = "1st Song is playing.";
-        navigateToPage();
+        navigateToPage(BaseUrl);
         loginToKoelApp();
         clickOnAvatar();
         clickOnShowNowPlayingCheckBox();
@@ -121,11 +132,11 @@ public class ProfileTests extends BaseTest {
 
         Assert.assertTrue(isSongPlayingWithNotification());
     }
-
+    @Parameters({"BaseUrl"})
     @Test
-    public void logoutKoelApp()throws InterruptedException{
+    public void logoutKoelApp(String BaseUrl)throws InterruptedException{
         boolean changesNotSavedMsgIsDisplayed = true;
-        navigateToPage();
+        navigateToPage(BaseUrl);
         loginToKoelApp();
         clickOnAvatar();
         clickOnConfirmBeforeClosingApp();
@@ -133,10 +144,11 @@ public class ProfileTests extends BaseTest {
        // Assert.assertEquals(getConfirmNotificationMsg(), changesNotSavedMsg);
         Assert.assertTrue(changesNotSavedMsgIsDisplayed, "Changes you made may not be saved.");
     }
+    @Parameters({"BaseUrl"})
     @Test
-    public void translucentOverlay()throws InterruptedException{
+    public void translucentOverlay(String BaseUrl)throws InterruptedException{
         String albumCoverIsNotOverlay ="Album cover is not blurred overlay.";
-        navigateToPage();
+        navigateToPage(BaseUrl);
         provideEmail("nataliya.yusupov@testpro.io");
         providePassword("Ashatan5934$");
         clickSubmit();

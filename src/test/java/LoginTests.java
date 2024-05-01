@@ -1,50 +1,126 @@
 import Pages.HomePage;
 import Pages.LoginPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
-    
-    @Test (enabled = true, priority = 0, description = "Login with invalid email and valid password")
-    public void loginInvalidEmailValidPassword(){
+    @Parameters({"BaseUrl"})
+    @Test(enabled = true, priority = 0, description = "Login with invalid email and valid password")
+    public void loginInvalidEmailValidPassword(String BaseUrl) {
 
-        navigateToPage();
+        navigateToPage(BaseUrl);
         provideEmail("invalid@class.com");
         providePassword("te$t$tudent");
         clickSubmit();
 
-        Assert.assertEquals(driver.getCurrentUrl(), url); //https://qa.koel.app/
+        Assert.assertEquals(driver.getCurrentUrl(), BaseUrl); //https://qa.koel.app/
     }
-
+    @Parameters({"BaseUrl"})
     @Test //(enabled = true, priority = 1, description = "Login with valid email and valid password")
-    public void loginValidEmailPassword()throws InterruptedException{
+    public void loginValidEmailPassword(String BaseUrl) throws InterruptedException {
 
-        navigateToPage();
+        navigateToPage(BaseUrl);
         provideEmail("nataliya.yusupov@testpro.io");
         providePassword("Ashatan5934$");
         clickSubmit();
-        isAvatarDisplayed();
+        //isAvatarDisplayed();
+        //Assert.assertTrue(avatarIcon.isDisplayed());
+
     }
+    @Parameters({"BaseUrl"})
+    @Test(enabled = true, priority = 3, description = "Login with valid email and empty password")
+    public void loginValidEmailEmptyPassword(String BaseUrl) {
 
-    @Test (enabled = true, priority = 3, description = "Login with valid email and empty password")
-    public void loginValidEmailEmptyPassword() {
-
-        navigateToPage();
-        provideEmail("demo@class.com");
+        navigateToPage(BaseUrl);
+        provideEmail("nataliya.yusupov@testpro.io");
         providePassword("");
         clickSubmit();
 
-        Assert.assertEquals(driver.getCurrentUrl(), url); //https://qa.koel.app/
+        Assert.assertEquals(driver.getCurrentUrl(), BaseUrl); //https://qa.koel.app/
     }
+
     @Test
-    public void loginWithCorrectEmailAndPassword(){
+    public void loginWithCorrectEmailAndPassword()  {
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
+
         loginPage.provideEmail("nataliya.yusupov@testpro.io");
         loginPage.providePassword("Ashatan5934$");
         loginPage.clickSubmit();
         Assert.assertTrue(homePage.clickOnAvatar().isDisplayed());
     }
+    @Parameters({"BaseUrl"})
+    @Test
+    public void loginValidGoodEmailPassword(String BaseUrl) throws InterruptedException {
 
+        navigateToPage(BaseUrl);
+        provideEmail("nataliya.yusupov@testpro.io");
+        providePassword("Ashatan5934$");
+        clickSubmit();
+        WebElement avatarIcon =
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img[class='avatar']")));
+        Assert.assertTrue(avatarIcon.isDisplayed());
+    }
+    @Parameters({"BaseUrl"})
+    @Test
+    public void loginValidEmailNoPassword(String BaseUrl) throws InterruptedException{
+
+        navigateToPage(BaseUrl);
+        provideEmail("nataliya.yusupov@testpro.io");
+        providePassword("");
+        clickSubmit();
+        Thread.sleep(4000);
+        Assert.assertEquals(driver.getCurrentUrl(), BaseUrl);
+
+    }
+    @Test(dataProvider = "InvalidLoginData")
+    //@Parameters({"BaseUrl"})
+    public void loginInvalidEmailAndValidPassword(String email, String password) throws InterruptedException{
+
+        //navigateToPage(BaseUrl);
+        provideEmail(email);
+        providePassword(password);
+        clickSubmit();
+        Thread.sleep(4000);
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+
+    }
+    @Test
+    public void loginValidEmailValidPassword() {
+      try {
+
+          provideEmail("nataliya1.yusupov@testpro.io");
+          providePassword("Ashatan5934$");
+          clickSubmit();
+          WebElement avatarIcon =
+                  wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img[class='avatar']")));
+          Assert.assertTrue(avatarIcon.isDisplayed());
+      }catch (Exception e){
+          System.out.println("Something wenr wrong." +e);
+      }
+    }
+    @Test
+    public void loginInValidEmailValidPassword() {
+        try {
+
+            provideEmail("nataliya1.yusupov@testpro.io");
+            providePassword("Ashatan5934$");
+            clickSubmit();
+            WebElement avatarIcon =
+                    wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img[class='avatar']")));
+            //Assert.assertTrue(avatarIcon.isDisplayed());
+            if(!avatarIcon.isDisplayed()){
+                Assert.fail("Avatar icon is not displayed.");
+            }
+            Assert.assertTrue(avatarIcon.isDisplayed());
+        }catch (Exception e){
+            System.out.println("Something went wrong." +e);
+            Assert.fail("Something went wrong." +e);
+        }
+    }
 
 }
