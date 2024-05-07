@@ -67,6 +67,18 @@ public class LoginTests extends BaseTest {
     }
     @Parameters({"BaseUrl"})
     @Test
+    public void loginValidCorrectEmailCorrectPassword(String BaseUrl) throws InterruptedException {
+
+        navigateToPage(BaseUrl);
+        provideEmail("nataliya.yusupov@testpro.io");
+        providePassword("Ashatan5934$");
+        clickSubmit();
+        WebElement avatarIcon =
+                fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img[class='avatar']")));
+        Assert.assertTrue(avatarIcon.isDisplayed());
+    }
+    @Parameters({"BaseUrl"})
+    @Test
     public void loginValidEmailNoPassword(String BaseUrl) throws InterruptedException{
 
         navigateToPage(BaseUrl);

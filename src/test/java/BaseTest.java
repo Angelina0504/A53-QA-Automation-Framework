@@ -46,11 +46,11 @@ public class BaseTest {
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
-        //Implicit wait
+        //Implicit wait, no condition
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        //Explicit wait
+        //Explicit wait, conditions and amount of time
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        //Fluent Wait
+        //Fluent Wait, how frequently we need to check, and amount of time
         fluentWait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofSeconds(5))
@@ -161,6 +161,7 @@ public class BaseTest {
 
     public void clickOnAllSongs(){
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='songs']"))).click();
+                //wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li a. songs']"))).click();
     }
     public void provideProfileNewPassword(String newPassword){
         WebElement provideNewPassword =
@@ -221,13 +222,25 @@ public class BaseTest {
     }
     public void choosePlayOption()throws InterruptedException {
                 wait.until(ExpectedConditions.visibilityOfElementLocated
-                        (By.xpath("//nav[@data-testid='song-context-menu']//ul//li[@class='playback']/span[1]")))
-                        .click();
+                        (By.cssSelector("li.playback"))).click();
+                        //(By.xpath("//nav[@data-testid='song-context-menu']//ul//li[@class='playback']/span[1]")))
+                        //.click();
+        //"//nav[@data-testid='song-context-menu']/ul//li[@class='playback']"
+        //"//nav[@class='menu song-menu']/ul//li[@class='playback']
     }
     public boolean isSongPlayingWithNotification(){
         WebElement soundBar = wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.xpath("//div[@data-testid='sound-bar-play']")));
         return soundBar.isDisplayed();
+        // By.cssSelector"[data-testid='sound-bar-play']"
+
+    }
+    public boolean isSongPlaying(){
+        WebElement soundBar = wait.until(ExpectedConditions.visibilityOfElementLocated
+                (By.cssSelector("[data-testid='sound-bar-play']")));
+        return soundBar.isDisplayed();
+        // By.cssSelector"[data-testid='sound-bar-play']"
+
     }
     public void loginToKoelApp(){
         provideEmail("nataliya.yusupov@testpro.io");
