@@ -8,10 +8,20 @@ public class HomePage extends BasePage{
     public HomePage(WebDriver givenDriver){
         super(givenDriver);
     }
-    By avatarIcon = By.cssSelector("img.avatar");
 
-    public WebElement clickOnAvatar(){
-        return findElementByLocator(avatarIcon);
+    //Page locators
+    By userAvatarIcon = By.cssSelector("img.avatar");
+
+    By allSongs = By.cssSelector("li a.songs");
+    //Page methods
+    public WebElement getUserAvatarIcon(){
+        return findElementByLocator(userAvatarIcon);
+    }
+    public WebElement clickOnAllSongs(){
+        return findElementByLocator(allSongs);
+    }
+    public void goToAllSongsList(){
+        findElementByLocator(allSongs).click();
     }
 }
 

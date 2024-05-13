@@ -14,6 +14,7 @@ public class LoginPage extends BasePage{
     By passwordField = By.cssSelector("input[type='password']");
     By submit = By.cssSelector("button[type='submit']");
 
+    //page methods
     public void provideEmail(String email){
         findElementByLocator(emailField).sendKeys(email);
     }

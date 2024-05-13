@@ -160,8 +160,8 @@ public class BaseTest {
     }
 
     public void clickOnAllSongs(){
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='songs']"))).click();
-                //wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li a. songs']"))).click();
+                //wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='songs']"))).click();
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li a.songs"))).click();
     }
     public void provideProfileNewPassword(String newPassword){
         WebElement provideNewPassword =

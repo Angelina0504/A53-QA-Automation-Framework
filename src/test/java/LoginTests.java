@@ -8,6 +8,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
+    //LoginPage loginPage = new LoginPage(driver);
+    //HomePage homePage = new HomePage(driver);
     @Parameters({"BaseUrl"})
     @Test(enabled = true, priority = 0, description = "Login with invalid email and valid password")
     public void loginInvalidEmailValidPassword(String BaseUrl) {
@@ -51,8 +53,32 @@ public class LoginTests extends BaseTest {
         loginPage.provideEmail("nataliya.yusupov@testpro.io");
         loginPage.providePassword("Ashatan5934$");
         loginPage.clickSubmit();
-        Assert.assertTrue(homePage.clickOnAvatar().isDisplayed());
+        Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
     }
+    @Test
+    public void loginValidEmailAndPassword()  {
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        //loginPage.provideEmail("nataliya.yusupov@testpro.io");
+        //loginPage.providePassword("Ashatan5934$");
+        //loginPage.clickSubmit();
+        loginPage.loginToKoelApp();
+        Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
+    }
+    @Test
+    public void loginWithInValidEmailAndPassword()  {
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.provideEmail("nataliya.yusupov@testpro.io1");
+        loginPage.providePassword("Ashatan5934$1");
+        loginPage.clickSubmit();
+        //loginPage.loginToKoelApp();
+        //Assert.assertEquals(loginPage.getCurrentUrl(), BaseUrl);
+        Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
+    }
+
     @Parameters({"BaseUrl"})
     @Test
     public void loginValidGoodEmailPassword(String BaseUrl) throws InterruptedException {
@@ -112,7 +138,7 @@ public class LoginTests extends BaseTest {
                   wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img[class='avatar']")));
           Assert.assertTrue(avatarIcon.isDisplayed());
       }catch (Exception e){
-          System.out.println("Something wenr wrong." +e);
+          System.out.println("Something went wrong." +e);
       }
     }
     @Test
@@ -129,10 +155,12 @@ public class LoginTests extends BaseTest {
                 Assert.fail("Avatar icon is not displayed.");
             }
             Assert.assertTrue(avatarIcon.isDisplayed());
-        }catch (Exception e){
-            System.out.println("Something went wrong." +e);
-            Assert.fail("Something went wrong." +e);
-        }
+            }catch (Exception e)
+              {
+            System.out.println("Something went wrong." + e);
+            Assert.fail("Something went wrong." + e);
+              }
+
     }
 
 }

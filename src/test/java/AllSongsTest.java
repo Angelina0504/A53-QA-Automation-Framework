@@ -1,3 +1,7 @@
+import Pages.AllSongsPage;
+import Pages.BasePage;
+import Pages.HomePage;
+import Pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -21,6 +25,24 @@ public class AllSongsTest extends BaseTest{
         Assert.assertTrue(isSongPlaying());
 
      }
+    @Test
+    public void playSongByContextClickPOM()throws InterruptedException{
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AllSongsPage allSongsPage = new AllSongsPage(driver);
+        BasePage basePage = new BasePage(driver);
+        loginPage.loginToKoelApp();
+        //loginPage.provideEmail("nataliya.yusupov@testpro.io");
+        //loginPage.providePassword("Ashatan5934$");
+        //loginPage.clickSubmit();
+
+        homePage.goToAllSongsList();
+        allSongsPage.contextClickFirstSong();
+        allSongsPage.choosePlayOption();
+
+        Assert.assertTrue(basePage.isSongPlaying());
+    }
+
      @Test
     public void clickOnExtraTabAlbum()throws InterruptedException{
          provideEmail("nataliya.yusupov@testpro.io");
@@ -32,6 +54,21 @@ public class AllSongsTest extends BaseTest{
 
       Assert.assertTrue(extraTabAlbumIsDisplayed());
      }
+    @Test
+    public void clickOnExtraTabAlbumPOM()throws InterruptedException{
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        AllSongsPage allSongsPage = new AllSongsPage(driver);
+       // provideEmail("nataliya.yusupov@testpro.io");
+        //providePassword("Ashatan5934$");
+        //clickSubmit();
+        loginPage.loginToKoelApp();
+        homePage.goToAllSongsList();
+        allSongsPage.contextClickFirstSong();
+        allSongsPage.chooseGoToAlbum();
+
+        Assert.assertTrue(allSongsPage.extraTabAlbumIsDisplayed());
+    }
      @Test
      public void hoverOverPlayBtn()throws InterruptedException{
          loginToKoelApp();
@@ -53,6 +90,19 @@ public class AllSongsTest extends BaseTest{
 
          Assert.assertTrue(clickOnPlayOrResumeBtn());
      }
+    @Test
+    public void hoverAndPlaySongPOM() throws InterruptedException{
+        LoginPage loginPage = new LoginPage(driver);
+        //AllSongsPage allSongsPage = new AllSongsPage(driver);
+        BasePage basePage = new BasePage(driver);
+        loginPage.loginToKoelApp();
+
+        Thread.sleep(4000);
+        basePage.hoverPlay();
+        Thread.sleep(4000);
+
+        Assert.assertTrue(basePage.clickOnPlayOrResumeBtn());
+    }
      @Test
      public void countSongsInPlaylist()throws InterruptedException{
         loginToKoelApp();
