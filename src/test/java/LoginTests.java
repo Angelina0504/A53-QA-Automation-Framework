@@ -55,6 +55,17 @@ public class LoginTests extends BaseTest {
         loginPage.clickSubmit();
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
     }
+    @Parameters({"BaseUrl"})
+    @Test
+    public void loginWithCorrectEmailAndIncorrectPassword()  {
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.provideEmail("nataliya.yusupov@testpro.io");
+        loginPage.providePassword("Ashatan5934$$");
+        loginPage.clickSubmit();
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+    }
     @Test
     public void loginValidEmailAndPassword()  {
         LoginPage loginPage = new LoginPage(driver);
@@ -66,6 +77,21 @@ public class LoginTests extends BaseTest {
         loginPage.loginToKoelApp();
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
     }
+    //Login tests using PageFactory and Fluent Interface-----------------------------------------------------------------
+
+
+    @Test
+    public void loginWithCorrectCredentialsUsingPageFactory(){
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        loginPage.provideEmailToLogin("nataliya.yusupov@testpro.io");
+        loginPage.providePasswordToLogin("Ashatan5934$");
+        loginPage.clickSubmitButtonToLogin();
+        //Assertions
+        Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
+    }
+
+
     @Test
     public void loginWithInValidEmailAndPassword()  {
         LoginPage loginPage = new LoginPage(driver);
@@ -130,7 +156,6 @@ public class LoginTests extends BaseTest {
     @Test
     public void loginValidEmailValidPassword() {
       try {
-
           provideEmail("nataliya1.yusupov@testpro.io");
           providePassword("Ashatan5934$");
           clickSubmit();
@@ -160,7 +185,9 @@ public class LoginTests extends BaseTest {
             System.out.println("Something went wrong." + e);
             Assert.fail("Something went wrong." + e);
               }
-
     }
+    
+
+
 
 }

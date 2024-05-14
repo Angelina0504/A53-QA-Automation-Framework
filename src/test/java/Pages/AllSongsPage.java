@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 public class AllSongsPage extends BasePage{
     public AllSongsPage(WebDriver givenDriver){
         super(givenDriver);
@@ -15,6 +17,7 @@ public class AllSongsPage extends BasePage{
     By goToAlbum = By.xpath("//nav[@data-testid='song-context-menu']//ul//li[@class='go-to-album']");
     By extraTabMenu = By.cssSelector("button[id='extraTabAlbum']");
     By soundBar = By.cssSelector("[data-testid='sound-bar-play']");
+
     public boolean isSongPlaying(){
        return findElementByLocator(soundBar).isDisplayed();
        // return soundBar.isDisplayed();
@@ -40,4 +43,6 @@ public class AllSongsPage extends BasePage{
                 (extraTabMenu));
         return extraTab.isDisplayed();
     }
+
+
 }

@@ -96,7 +96,6 @@ public class AllSongsTest extends BaseTest{
         //AllSongsPage allSongsPage = new AllSongsPage(driver);
         BasePage basePage = new BasePage(driver);
         loginPage.loginToKoelApp();
-
         Thread.sleep(4000);
         basePage.hoverPlay();
         Thread.sleep(4000);
@@ -114,6 +113,20 @@ public class AllSongsTest extends BaseTest{
 
         Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(countSongs())));
      }
+    @Test
+    public void countSongsInPlaylistPOM()throws InterruptedException{
+        LoginPage loginPage = new LoginPage(driver);
+        //AllSongsPage allSongsPage = new AllSongsPage(driver);
+        BasePage basePage = new BasePage(driver);
+        loginPage.loginToKoelApp();
+        //Thread.sleep(4000);
+        basePage.choosePlaylistByName("Playlist to count songs");
+        Thread.sleep(4000);
+        //countSongs();
+        basePage.displayAllSongs();
+
+        Assert.assertTrue(basePage.getPlaylistDetails().contains(String.valueOf(countSongs())));
+    }
      @Test
      public void renamePlaylist()throws InterruptedException{
         String updatedPlaylistMsg ="Updated playlist \"Sample Edited Playlist.\"";
