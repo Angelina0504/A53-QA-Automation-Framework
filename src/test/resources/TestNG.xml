@@ -3,18 +3,36 @@
 
 <suite name="TestNG">
 
-    <parameter name="BaseUrl" value="https://qa.koel.app"/>
-    <test name="Example Test" preserve-order="false">
+    //<parameter name="BaseUrl" value="https://qa.koel.app"/>
+    <test name="LoginTests" preserve-order="false">
         <classes>
+
+            <class name="CucumberRunner"/>
+
+            <!--class name="BaseTest"/>
+            <class name="HomeWork16"/>
+            <class name="stepDefinitions.LoginSteps"/>
+            <class name="HomeWork26"/>
             <class name="LoginTests"/>
-            <class name="BaseTest"/>
+            <class name="HomeWork24A"/>
+            <class name="HomeWork25"/>
             <class name="HomeWork19"/>
             <class name="HomeWork20"/>
+            <class name="LoginTests"/>
             <class name="HomeWork18"/>
             <class name="HomeWork16"/>
             <class name="ProfileTest"/>
             <class name="HomeWork17"/>
             <class name="HomeTest"/>
+            <class name="HomeWork23"/>
+            <class name="Pages.BasePage"/>
+            <class name="Pages.HomePage"/>
+            <class name="Pages.LoginPage"/>
+            <class name="HomeWork22"/>
+            <class name="HomeWork22A"/>
+            <class name="Pages.AllSongsPage"/>
+            <class name="HomeWork23C"/>
+            <class name="HomeWork23D"/>-->
         </classes>
     </test>
 </suite>

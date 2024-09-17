@@ -1,3 +1,5 @@
+import Pages.HomePage;
+import Pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,8 +14,15 @@ import java.time.Duration;
 public class HomeWork16 extends BaseTest {
     @Test
     public void registrationNavigation() {
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
-        //Preconditions
+        loginPage.provideEmail("demo@class.com");
+        loginPage.providePassword("te$t$tudent");
+        loginPage.clickSubmit();
+        //Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
+
+        /*//Preconditions
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
@@ -39,7 +48,7 @@ public class HomeWork16 extends BaseTest {
         WebElement submitButton = wait.until(ExpectedConditions
                 .visibilityOfElementLocated(By.cssSelector("button[type = 'submit']")));
         //WebElement submitButton = driver.findElement(By.cssSelector ("button[type = 'submit']"));
-        submitButton.click();
+        submitButton.click();*/
         //registrationField
         WebElement registrationLink = wait.until(ExpectedConditions
                 .visibilityOfElementLocated(By.cssSelector("[href='registration']")));
@@ -50,10 +59,5 @@ public class HomeWork16 extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), registrationUrl);
         //quit
         driver.quit();
-
     }
-
-
-
-
 }
